@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Offizielles Angebot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="result.css">
+</head>
+<body class="client-mode-active">
+  <div class="container" style="margin-top: 40px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+    
+    <div id="statusAlert" class="alert hidden"></div>
+    <div id="loadingOverlay" style="padding: 40px; text-align: center; color: #64748b; font-size: 16px;">
+        <div class="loader" style="margin: 0 auto 10px; display: block;"></div>
+        Lade Angebot...
+    </div>
+
+    <!-- 报价单顶部信息 -->
+    <div id="quoteHeader" class="quote-header hidden">
+        <div class="quote-title">OFFIZIELLES ANGEBOT</div>
+        <div class="quote-company-name" id="displayCompanyName"></div>
+        <div class="quote-date" id="displayQuoteDate"></div>
+    </div>
+
+    <!-- 层级数据展示区 -->
+    <div id="hierarchyContainer" class="hierarchy-container" style="padding-bottom: 100px;">
+      <!-- 数据动态渲染到这里 -->
+    </div>
+
+    <!-- 底部汇总工具栏 (非 Sticky, 正常文档流) -->
+    <div id="summaryBar" class="bottom-summary-bar hidden" style="padding: 25px 40px; flex-direction: column; align-items: stretch; gap: 20px; position: relative; bottom: auto; left: auto; box-shadow: none; border-top: 1px solid #e2e8f0; border-radius: 0 0 12px 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+            <div class="summary-stats" style="flex: 1;">
+                <div class="summary-item">
+                    <span class="label">Anzahl Lieferanten</span>
+                    <span class="value" id="totalStores">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Artikelarten</span>
+                    <span class="value" id="totalItems">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Gesamtmenge</span>
+                    <span class="value" id="totalQty">0</span>
+                </div>
+            </div>
+            
+            <div class="summary-total-group" style="flex: 1; display: flex; justify-content: flex-end;">
+                <div class="total-vertical-stack" style="min-width: 450px;">
+                    <!-- 1. Warengesamtwert -->
+                    <div class="invoice-row">
+                        <span class="invoice-label">Warenwert</span>
+                        <div class="invoice-values">
+                            <span id="productTotalCny">¥0.00</span>
+                            <span class="invoice-eur" id="productTotalEur">€0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Inlandsversand -->
+                    <div class="invoice-row">
+                        <span class="invoice-label">Inlandsversand (CN)</span>
+                        <div class="invoice-values">
+                            <span id="shippingCny">¥0.00</span>
+                            <span class="invoice-eur" id="shippingEur">€0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- 2.5 Zwischensumme -->
+                    <div class="invoice-row" style="margin-top: 2px; padding-top: 2px; border-top: 1px dashed #f1f5f9;">
+                        <span class="invoice-label" style="color: #475569;">Zwischensumme</span>
+                        <div class="invoice-values">
+                            <span id="itemsSubtotalCny" style="color: #475569;">¥0.00</span>
+                            <span class="invoice-eur" id="itemsSubtotalEur" style="color: #475569;">€0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Servicegebühr -->
+                    <div class="invoice-row">
+                        <span class="invoice-label" id="labelServiceFee">Servicegebühr (0%)</span>
+                        <div class="invoice-values">
+                            <span id="serviceFeeCny">¥0.00</span>
+                            <span class="invoice-eur" id="serviceFeeEur">€0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Trennlinie -->
+                    <div class="invoice-divider"></div>
+
+                    <!-- 4. Gesamtbetrag -->
+                    <div class="invoice-row grand-total-row">
+                        <span class="invoice-label" style="font-size: 18px; color: #1e293b;">Gesamtbetrag</span>
+                        <div class="invoice-values">
+                            <span class="cny-val" id="totalCny">¥0.00</span>
+                            <span class="eur-val" id="totalEur">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部告知文字 (Validity Notice) -->
+        <div id="validityNotice" style="width: 100%; text-align: right; font-size: 13px; color: #64748b; border-top: 1px solid #f1f5f9; padding-top: 12px; font-style: italic;">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- 报价单底部条款 -->
+    <div id="quoteFooter" class="quote-footer hidden">
+        <div class="footer-section">
+            <strong>Zahlungsinformationen:</strong>
+            <div id="displayPaymentInfo"></div>
+        </div>
+        <div class="footer-section">
+            <strong>Konditionen:</strong>
+            <div id="displayTerms"></div>
+        </div>
+    </div>
+
+    <!-- 图片预览浮窗 -->
+    <div id="imagePreview" class="image-preview"></div>
+
+  </div>
+  <script src="viewer.js"></script>
+</body>
+</html>

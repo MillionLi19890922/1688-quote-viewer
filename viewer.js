@@ -208,9 +208,9 @@ function renderHierarchy() {
         storeFooter.innerHTML = `
             <div style="display: flex; align-items: center; gap: 12px;">
                 <span style="font-size: 13px; font-weight: 600; color: #4B5563;">Summe</span>
-                <span style="font-size: 15px; font-weight: 800; color: #4B5563;">¥${storeProductCny.toFixed(2)}</span>
+                <span style="font-size: 16px; font-weight: 800; color: #111827;">€${storeCostEur.toFixed(2)}</span>
                 <div style="width: 1px; height: 14px; background: #E5E7EB;"></div>
-                <span style="font-size: 15px; font-weight: 800; color: #111827;">€${storeCostEur.toFixed(2)}</span>
+                <span style="font-size: 13px; font-weight: 400; color: #9CA3AF;">(¥${storeProductCny.toFixed(2)})</span>
             </div>
         `;
         storeDiv.appendChild(storeFooter);

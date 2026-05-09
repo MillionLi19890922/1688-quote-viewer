@@ -127,18 +127,22 @@ h1 {
   gap: 2px;
 }
 
-.dual-currency .cny {
-  font-size: 11px;
-  color: #6B7280;
-  font-weight: 500;
-}
-
 .dual-currency .eur {
-  font-size: 14px;
+  order: 1; /* EUR on top */
+  font-size: 15px;
   color: #111827;
   font-weight: 700;
 }
 
+.dual-currency .cny {
+  order: 2; /* CNY at bottom */
+  font-size: 12px;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.dual-currency .cny::before { content: "("; }
+.dual-currency .cny::after { content: ")"; }
 
 .alert.hidden { display: none; }
 .alert-error { background: #fef2f2; color: #ef4444; border: 1px solid #fecaca; }
@@ -211,12 +215,18 @@ h1 {
   gap: 20px;
   font-weight: 700;
   color: #111827;
+  flex-direction: row-reverse;
 }
 
 .invoice-eur {
   color: #111827;
-  min-width: 100px;
   text-align: right;
+}
+
+.invoice-values > span:not(.invoice-eur):not(.eur-val) {
+  color: #9CA3AF; /* Make CNY values in normal rows gray */
+  font-weight: 400;
+  font-size: 13px;
 }
 
 .invoice-divider {
@@ -230,17 +240,18 @@ h1 {
 }
 
 .cny-val {
-  font-size: 26px;
-  font-weight: 800;
-  color: #4B5563;
+  font-size: 16px;
+  font-weight: 500;
+  color: #9CA3AF;
 }
 
+.cny-val::before { content: "("; }
+.cny-val::after { content: ")"; }
+
 .eur-val {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
   color: #111827;
-  min-width: 120px;
-  text-align: right;
 }
 
 .separator {
@@ -613,7 +624,7 @@ a.link-icon:hover { text-decoration: underline; }
     flex-wrap: wrap;
     margin-bottom: 16px;
     background: #FAFAFA; /* Soft off-white */
-    border: 1px solid #E5E7EB;
+    border: 1px solid rgba(229, 231, 235, 0.7);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     overflow: hidden;
@@ -638,14 +649,14 @@ a.link-icon:hover { text-decoration: underline; }
     width: 100%;
     background: #FAFAFA; /* Header background */
     padding: 14px 16px;
-    border-bottom: 1px solid #E5E7EB;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.7);
   }
   
   .sku-table-container td:nth-child(1) img {
     border-radius: 50% !important; /* Circle avatar */
     width: 44px !important;
     height: 44px !important;
-    border: 1px solid #E5E7EB;
+    border: 1px solid rgba(229, 231, 235, 0.7);
   }
   
   .sku-table-container td:nth-child(1) .product-de-title,
@@ -664,7 +675,7 @@ a.link-icon:hover { text-decoration: underline; }
     justify-content: flex-start;
     align-items: center; /* Center aligned content */
     padding: 0 0 20px 0; /* Remove top/side padding to let label span full width */
-    border-right: 1px solid #E5E7EB;
+    border-right: 1px solid rgba(229, 231, 235, 0.7);
     text-align: center;
     background: #FFFFFF;
     font-size: 16px;
@@ -683,7 +694,7 @@ a.link-icon:hover { text-decoration: underline; }
     align-items: center;
     padding: 16px 20px;
     background-color: #FAFAFA; /* Footer background matches header */
-    border-top: 1px solid #E5E7EB;
+    border-top: 1px solid rgba(229, 231, 235, 0.7);
   }
 
   /* Data labels */
@@ -698,7 +709,7 @@ a.link-icon:hover { text-decoration: underline; }
     font-weight: 700;
     color: #111827;
     font-size: 13px;
-    border-bottom: 1px solid #E5E7EB;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.7);
     margin-bottom: 16px;
     box-sizing: border-box;
   }
@@ -744,36 +755,37 @@ a.link-icon:hover { text-decoration: underline; }
     align-items: center !important;
     gap: 2px !important;
   }
-  .dual-currency .cny {
+  .dual-currency .eur {
+    order: 1 !important;
     font-size: 15px !important;
     font-weight: 800 !important;
     color: #111827 !important;
   }
-  .dual-currency .eur {
+  .dual-currency .cny {
+    order: 2 !important;
     font-size: 12px !important;
-    color: #6B7280 !important;
+    color: #9CA3AF !important;
     font-weight: 400 !important;
   }
-  .dual-currency .eur::before { content: "("; }
-  .dual-currency .eur::after { content: ")"; }
+  .dual-currency .cny::before { content: "(" !important; }
+  .dual-currency .cny::after { content: ")" !important; }
+  .dual-currency .eur::before, .dual-currency .eur::after { content: "" !important; }
 
   /* Summe row special currency styles */
   .sku-table-container td:nth-child(5) .dual-currency {
     align-items: flex-end !important;
   }
-  .sku-table-container td:nth-child(5) .cny {
-    color: #4B5563 !important;
-    font-size: 16px !important;
-  }
   .sku-table-container td:nth-child(5) .eur {
     color: #111827 !important;
+    font-size: 16px !important;
+  }
+  .sku-table-container td:nth-child(5) .cny {
+    color: #9CA3AF !important;
     font-size: 14px !important;
-    font-weight: 800 !important;
+    font-weight: 400 !important;
   }
-  .sku-table-container td:nth-child(5) .eur::before,
-  .sku-table-container td:nth-child(5) .eur::after {
-    content: "" !important;
-  }
+  .sku-table-container td:nth-child(5) .cny::before { content: "(" !important; }
+  .sku-table-container td:nth-child(5) .cny::after { content: ")" !important; }
   
   .store-header {
     font-size: 14px;

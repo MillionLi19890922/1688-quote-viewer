@@ -109,7 +109,7 @@ function renderHierarchy() {
             prodHeader.innerHTML = `
                 ${prod.imgUrl ? `<img src="${prod.imgUrl}" class="previewable-image" alt="Product">` : '<div style="width:80px;height:80px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#94a3b8;border:1px dashed #cbd5e1;">无图</div>'}
                 <div class="product-titles">
-                    <div class="product-de-title">${escapeHtml(prod.titleDe || prod.title)} ${prod.link ? `<a href="${prod.link}" target="_blank" class="link-icon" style="font-size:12px; margin-left:8px; color:#2563eb; text-decoration:none;">🔗 Link</a>` : ''}</div>
+                    <div class="product-de-title">${escapeHtml(prod.titleDe || prod.title)} ${prod.link ? `<a href="${prod.link}" target="_blank" class="link-icon" style="font-size:12px; margin-left:8px; text-decoration:underline;">🔗 Link</a>` : ''}</div>
                 </div>
             `;
             prodDiv.appendChild(prodHeader);
@@ -126,7 +126,7 @@ function renderHierarchy() {
                                 <th width="8%" class="num-center">Menge</th>
                                 <th width="19%" class="num-center">Listenpreis</th>
                                 <th width="19%" class="num-center">Angebotspreis</th>
-                                <th width="19%" class="num-center" style="background-color: #f0f7ff;">Summe</th>
+                                <th width="19%" class="num-center">Summe</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -180,9 +180,9 @@ function renderHierarchy() {
                                     <span class="eur">€${sku.priceEur.toFixed(2)}</span>
                                 </div>
                             </td>
-                            <td class="num-center" style="background-color: #f8fbff;">
+                            <td class="num-center">
                                 <div class="dual-currency">
-                                    <span class="cny" style="color:#b45309;">¥${skuSubtotalCny.toFixed(2)}</span>
+                                    <span class="cny">¥${skuSubtotalCny.toFixed(2)}</span>
                                     <span class="eur" style="font-weight: 800;">€${sku.totalPriceEur.toFixed(2)}</span>
                                 </div>
                             </td>
@@ -207,10 +207,10 @@ function renderHierarchy() {
         storeFooter.style.cssText = `margin: 5px 0 15px 0; padding: 5px 40px; display: flex; justify-content: flex-end; align-items: center;`;
         storeFooter.innerHTML = `
             <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-size: 13px; font-weight: 600; color: #64748b;">Summe</span>
-                <span style="font-size: 15px; font-weight: 800; color: #0f172a;">¥${storeProductCny.toFixed(2)}</span>
-                <div style="width: 1px; height: 14px; background: #e2e8f0;"></div>
-                <span style="font-size: 15px; font-weight: 800; color: #2563eb;">€${storeCostEur.toFixed(2)}</span>
+                <span style="font-size: 13px; font-weight: 600; color: #4B5563;">Summe</span>
+                <span style="font-size: 15px; font-weight: 800; color: #4B5563;">¥${storeProductCny.toFixed(2)}</span>
+                <div style="width: 1px; height: 14px; background: #E5E7EB;"></div>
+                <span style="font-size: 15px; font-weight: 800; color: #111827;">€${storeCostEur.toFixed(2)}</span>
             </div>
         `;
         storeDiv.appendChild(storeFooter);

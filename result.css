@@ -1,7 +1,7 @@
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #FAFAFA;
+  color: #111827;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +24,7 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #3b82f6;
+  color: #111827;
 }
 
 .logo svg {
@@ -36,7 +36,7 @@ h1 {
   margin: 0;
   font-size: 24px;
   font-weight: 700;
-  color: #1e293b;
+  color: #111827;
 }
 
 .btn {
@@ -59,26 +59,27 @@ h1 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  background: #111827;
   color: white;
-  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 42px;
   width: 100%;
 }
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.3);
+  background: #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-outline {
   background: white;
-  color: #3b82f6;
-  border-color: #bfdbfe;
+  color: #111827;
+  border-color: #E5E7EB;
 }
 
 .btn-outline:hover:not(:disabled) {
-  background: #eff6ff;
+  background: #F3F4F6;
 }
 
 .btn svg {
@@ -106,17 +107,17 @@ h1 {
   border-radius: 12px;
   padding: 24px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E7EB;
   display: flex;
   gap: 20px;
   align-items: flex-end;
 }
 
 .panel-section { flex: 1; }
-.panel-section label { display: block; font-size: 13px; font-weight: 500; color: #64748b; margin-bottom: 8px; }
-.panel-section input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; box-sizing: border-box; transition: all 0.2s; }
-.panel-section input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.panel-section label { display: block; font-size: 13px; font-weight: 500; color: #4B5563; margin-bottom: 8px; }
+.panel-section input { width: 100%; padding: 10px 12px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14px; box-sizing: border-box; transition: all 0.2s; }
+.panel-section input:focus { outline: none; border-color: #111827; box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.1); }
 
 .alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; font-size: 14px; font-weight: 500; }
 .dual-currency {
@@ -128,13 +129,13 @@ h1 {
 
 .dual-currency .cny {
   font-size: 11px;
-  color: #64748b;
+  color: #6B7280;
   font-weight: 500;
 }
 
 .dual-currency .eur {
   font-size: 14px;
-  color: #0f172a;
+  color: #111827;
   font-weight: 700;
 }
 
@@ -146,11 +147,11 @@ h1 {
 /* Bottom Summary Bar */
 .bottom-summary-bar {
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #E5E7EB;
   border-radius: 12px;
   padding: 30px 40px;
   display: flex;
-  justify-content: space-between; /* 左右对齐关键点 */
+  justify-content: space-between;
   align-items: center;
   max-width: 1360px;
   margin: 10px auto 40px auto;
@@ -167,7 +168,7 @@ h1 {
   align-items: flex-start;
   gap: 4px;
   padding: 0 40px;
-  border-right: 1px solid #f1f5f9;
+  border-right: 1px solid #E5E7EB;
 }
 
 .summary-item:last-child {
@@ -176,14 +177,14 @@ h1 {
 
 .summary-item .label {
   font-size: 13px;
-  color: #94a3b8;
+  color: #6B7280;
   font-weight: 600;
 }
 
 .summary-item .value {
   font-size: 24px;
   font-weight: 700;
-  color: #1e293b;
+  color: #111827;
 }
 
 .total-vertical-stack {
@@ -200,7 +201,7 @@ h1 {
 }
 
 .invoice-label {
-  color: #64748b;
+  color: #4B5563;
   font-weight: 600;
 }
 
@@ -209,18 +210,18 @@ h1 {
   align-items: center;
   gap: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: #111827;
 }
 
 .invoice-eur {
-  color: #2563eb;
+  color: #111827;
   min-width: 100px;
   text-align: right;
 }
 
 .invoice-divider {
   height: 1px;
-  background: #e2e8f0;
+  background: #E5E7EB;
   margin: 8px 0;
 }
 
@@ -231,13 +232,13 @@ h1 {
 .cny-val {
   font-size: 26px;
   font-weight: 800;
-  color: #0f172a;
+  color: #4B5563;
 }
 
 .eur-val {
   font-size: 26px;
   font-weight: 800;
-  color: #2563eb;
+  color: #111827;
   min-width: 120px;
   text-align: right;
 }
@@ -245,7 +246,7 @@ h1 {
 .separator {
   width: 1px;
   height: 24px;
-  background: #e2e8f0;
+  background: #E5E7EB;
 }
 
 #shippingNote {
@@ -262,25 +263,25 @@ h1 {
 .store-group {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E7EB;
   overflow: hidden;
 }
 
 .store-header {
-  background: #f8fafc;
+  background: #FAFAFA;
   padding: 16px 20px;
   font-size: 16px;
   font-weight: 700;
-  color: #1e293b;
-  border-bottom: 1px solid #e2e8f0;
+  color: #111827;
+  border-bottom: 1px solid #E5E7EB;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .product-group {
-  border-bottom: 1px dashed #e2e8f0;
+  border-bottom: 1px solid #E5E7EB;
   padding: 20px;
 }
 .product-group:last-child {
@@ -298,7 +299,7 @@ h1 {
   height: 80px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #E5E7EB;
 }
 
 .product-titles {
@@ -310,14 +311,14 @@ h1 {
 
 .product-zh-title {
   font-size: 14px;
-  color: #64748b;
+  color: #6B7280;
   margin-bottom: 6px;
 }
 
 .product-de-title {
   font-size: 16px;
   font-weight: 600;
-  color: #0f172a;
+  color: #111827;
 }
 .product-de-title.untranslated {
   color: #94a3b8;
@@ -327,9 +328,9 @@ h1 {
 
 .sku-table-container {
   margin-left: 100px; /* Aligned with titles */
-  background: #f8fafc;
+  background: #FFFFFF;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #E5E7EB;
   overflow: hidden;
 }
 
@@ -342,17 +343,17 @@ h1 {
   padding: 10px 16px;
   font-size: 12px;
   font-weight: 600;
-  color: #64748b;
-  background: #f1f5f9;
-  border-bottom: 1px solid #e2e8f0;
+  color: #4B5563;
+  background: #F9FAFB;
+  border-bottom: 1px solid #E5E7EB;
   text-align: left;
 }
 
 .sku-table-container td {
   padding: 12px 16px;
   font-size: 13px;
-  color: #334155;
-  border-bottom: 1px solid #e2e8f0;
+  color: #111827;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .sku-table-container tr:last-child td {
@@ -361,24 +362,24 @@ h1 {
 
 .sku-table-container th.num-center, .sku-table-container td.num-center { text-align: center; }
 .sku-table-container th.num-right, .sku-table-container td.num-right { text-align: right; }
-.highlight-price { color: #10b981; font-weight: 600; }
+.highlight-price { color: #111827; font-weight: 700; }
 
 .sku-zh {
   font-size: 11px;
-  color: #94a3b8;
+  color: #6B7280;
   margin-bottom: 4px;
 }
 .sku-de {
   font-weight: 500;
 }
 .sku-de.untranslated {
-  color: #cbd5e1;
+  color: #9CA3AF;
   font-weight: 400;
 }
 
 a.link-icon {
-  color: #3b82f6;
-  text-decoration: none;
+  color: #4B5563;
+  text-decoration: underline;
   font-size: 14px;
   margin-left: 10px;
 }
@@ -414,7 +415,7 @@ a.link-icon:hover { text-decoration: underline; }
 /* Quote Header & Footer (Client Mode) */
 .quote-header {
   margin-bottom: 40px;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #111827;
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -424,27 +425,27 @@ a.link-icon:hover { text-decoration: underline; }
 .quote-title {
   font-size: 28px;
   font-weight: 800;
-  color: #1e293b;
+  color: #111827;
   letter-spacing: 1px;
 }
 
 .quote-company-name {
   font-size: 18px;
   font-weight: 600;
-  color: #3b82f6;
+  color: #4B5563;
 }
 
 .quote-date {
   font-size: 14px;
-  color: #64748b;
+  color: #6B7280;
 }
 
 .quote-footer {
   margin-top: 60px;
   padding: 30px;
-  background: #f8fafc;
+  background: #FAFAFA;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #E5E7EB;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
@@ -453,14 +454,14 @@ a.link-icon:hover { text-decoration: underline; }
 .footer-section strong {
   display: block;
   font-size: 14px;
-  color: #475569;
+  color: #4B5563;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
 
 .footer-section div {
   font-size: 15px;
-  color: #1e293b;
+  color: #111827;
   line-height: 1.6;
 }
 
@@ -612,9 +613,9 @@ a.link-icon:hover { text-decoration: underline; }
     flex-wrap: wrap;
     margin-bottom: 16px;
     background: #FAFAFA; /* Soft off-white */
-    border: 1px solid #EAE5DF;
+    border: 1px solid #E5E7EB;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     overflow: hidden;
   }
 
@@ -635,16 +636,16 @@ a.link-icon:hover { text-decoration: underline; }
   /* First TD (Image & Name) */
   .sku-table-container td:nth-child(1) {
     width: 100%;
-    background: #F5F3ED; /* Header background */
+    background: #FAFAFA; /* Header background */
     padding: 14px 16px;
-    border-bottom: 1px solid #EAE5DF;
+    border-bottom: 1px solid #E5E7EB;
   }
   
   .sku-table-container td:nth-child(1) img {
     border-radius: 50% !important; /* Circle avatar */
     width: 44px !important;
     height: 44px !important;
-    border: 1px solid #EAE5DF;
+    border: 1px solid #E5E7EB;
   }
   
   .sku-table-container td:nth-child(1) .product-de-title,
@@ -663,11 +664,11 @@ a.link-icon:hover { text-decoration: underline; }
     justify-content: flex-start;
     align-items: center; /* Center aligned content */
     padding: 0 0 20px 0; /* Remove top/side padding to let label span full width */
-    border-right: 1px solid #EAE5DF;
+    border-right: 1px solid #E5E7EB;
     text-align: center;
     background: #FFFFFF;
     font-size: 16px;
-    color: #111;
+    color: #111827;
   }
   
   .sku-table-container td:nth-child(4) {
@@ -681,8 +682,8 @@ a.link-icon:hover { text-decoration: underline; }
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
-    background-color: #F5F3ED; /* Footer background matches header */
-    border-top: 1px solid #EAE5DF;
+    background-color: #FAFAFA; /* Footer background matches header */
+    border-top: 1px solid #E5E7EB;
   }
 
   /* Data labels */
@@ -695,9 +696,9 @@ a.link-icon:hover { text-decoration: underline; }
     width: 100%;
     padding: 12px 0;
     font-weight: 700;
-    color: #111;
+    color: #111827;
     font-size: 13px;
-    border-bottom: 1px solid #EAE5DF;
+    border-bottom: 1px solid #E5E7EB;
     margin-bottom: 16px;
     box-sizing: border-box;
   }
@@ -705,12 +706,12 @@ a.link-icon:hover { text-decoration: underline; }
   .client-mode-active .sku-table-container td:nth-child(2)::before { content: "Menge"; }
   .client-mode-active .sku-table-container td:nth-child(3)::before { content: "Staffelpreis"; }
   .client-mode-active .sku-table-container td:nth-child(4)::before { content: "Angebotspreis"; }
-  .client-mode-active .sku-table-container td:nth-child(5)::before { content: "Summe"; font-weight: 800; color: #111; font-size: 16px; }
+  .client-mode-active .sku-table-container td:nth-child(5)::before { content: "Summe"; font-weight: 800; color: #111827; font-size: 16px; }
 
   body:not(.client-mode-active) .sku-table-container td:nth-child(2)::before { content: "数量"; }
   body:not(.client-mode-active) .sku-table-container td:nth-child(3)::before { content: "阶梯单价"; }
   body:not(.client-mode-active) .sku-table-container td:nth-child(4)::before { content: "优惠单价"; }
-  body:not(.client-mode-active) .sku-table-container td:nth-child(5)::before { content: "小计"; font-weight: 800; color: #111; font-size: 16px; }
+  body:not(.client-mode-active) .sku-table-container td:nth-child(5)::before { content: "小计"; font-weight: 800; color: #111827; font-size: 16px; }
 
   /* Center align content blocks inside data TDs */
   .sku-table-container td:nth-child(2) > div,
@@ -746,11 +747,11 @@ a.link-icon:hover { text-decoration: underline; }
   .dual-currency .cny {
     font-size: 15px !important;
     font-weight: 800 !important;
-    color: #111 !important;
+    color: #111827 !important;
   }
   .dual-currency .eur {
     font-size: 12px !important;
-    color: #888 !important;
+    color: #6B7280 !important;
     font-weight: 400 !important;
   }
   .dual-currency .eur::before { content: "("; }
@@ -761,11 +762,11 @@ a.link-icon:hover { text-decoration: underline; }
     align-items: flex-end !important;
   }
   .sku-table-container td:nth-child(5) .cny {
-    color: #9B6A3B !important;
+    color: #4B5563 !important;
     font-size: 16px !important;
   }
   .sku-table-container td:nth-child(5) .eur {
-    color: #111 !important;
+    color: #111827 !important;
     font-size: 14px !important;
     font-weight: 800 !important;
   }

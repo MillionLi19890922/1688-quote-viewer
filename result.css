@@ -1,11 +1,10 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #f5f5f7;
-  color: #1d1d1f;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -36,10 +35,8 @@ header {
 h1 {
   margin: 0;
   font-size: 24px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #1d1d1f;
-  letter-spacing: -0.015em;
+  color: #1e293b;
 }
 
 .btn {
@@ -264,26 +261,26 @@ h1 {
 
 .store-group {
   background: white;
-  border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
   overflow: hidden;
 }
 
 .store-header {
-  background: white;
+  background: #f8fafc;
   padding: 16px 20px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #1d1d1f;
-  border-bottom: 1px solid #e5e5ea;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .product-group {
-  border-bottom: 1px solid #e5e5ea;
+  border-bottom: 1px dashed #e2e8f0;
   padding: 20px;
 }
 .product-group:last-child {
@@ -292,16 +289,16 @@ h1 {
 
 .product-header {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 16px;
 }
 
 .product-header img {
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #e5e5ea;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
 .product-titles {
@@ -312,29 +309,27 @@ h1 {
 }
 
 .product-zh-title {
-  font-size: 13px;
-  color: #86868b;
-  margin-bottom: 4px;
-  line-height: 1.4;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 6px;
 }
 
 .product-de-title {
-  font-size: 15px;
-  font-weight: 500;
-  color: #1d1d1f;
-  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
 }
 .product-de-title.untranslated {
-  color: #86868b;
+  color: #94a3b8;
   font-style: italic;
   font-weight: 400;
 }
 
 .sku-table-container {
-  margin-left: 88px; /* Aligned with titles */
-  background: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #e5e5ea;
+  margin-left: 100px; /* Aligned with titles */
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
   overflow: hidden;
 }
 
@@ -345,21 +340,19 @@ h1 {
 
 .sku-table-container th {
   padding: 10px 16px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #86868b;
-  background: #f5f5f7;
-  border-bottom: 1px solid #e5e5ea;
+  color: #64748b;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
   text-align: left;
 }
 
 .sku-table-container td {
   padding: 12px 16px;
   font-size: 13px;
-  color: #1d1d1f;
-  border-bottom: 1px solid #e5e5ea;
+  color: #334155;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .sku-table-container tr:last-child td {
@@ -372,27 +365,24 @@ h1 {
 
 .sku-zh {
   font-size: 11px;
-  color: #86868b;
+  color: #94a3b8;
   margin-bottom: 4px;
 }
 .sku-de {
   font-weight: 500;
 }
 .sku-de.untranslated {
-  color: #c7c7cc;
+  color: #cbd5e1;
   font-weight: 400;
 }
 
 a.link-icon {
-  color: #0066cc;
+  color: #3b82f6;
   text-decoration: none;
-  font-size: 13px;
-  margin-left: 8px;
-  font-weight: 400;
-  opacity: 0.8;
-  transition: opacity 0.2s;
+  font-size: 14px;
+  margin-left: 10px;
 }
-a.link-icon:hover { opacity: 1; text-decoration: none; }
+a.link-icon:hover { text-decoration: underline; }
 
 /* Image Preview */
 .image-preview {
@@ -423,26 +413,25 @@ a.link-icon:hover { opacity: 1; text-decoration: none; }
 
 /* Quote Header & Footer (Client Mode) */
 .quote-header {
-  margin-bottom: 32px;
-  padding-bottom: 16px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .quote-title {
-  font-size: 32px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  color: #1d1d1f;
-  letter-spacing: -0.02em;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 1px;
 }
 
 .quote-company-name {
-  font-size: 16px;
-  font-weight: 500;
-  color: #86868b;
-  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3b82f6;
 }
 
 .quote-date {
@@ -599,22 +588,198 @@ a.link-icon:hover { opacity: 1; text-decoration: none; }
   
   .sku-table-container {
     margin-left: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
-    border-radius: 8px;
+    background: transparent;
+    border: none;
   }
   
-  .sku-table-container table {
-    min-width: 550px;
+  .sku-table-container table, 
+  .sku-table-container thead, 
+  .sku-table-container tbody, 
+  .sku-table-container tr, 
+  .sku-table-container td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sku-table-container thead {
+    display: none;
+  }
+
+  .sku-table-container tr {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    background: #FAFAFA; /* Soft off-white */
+    border: 1px solid #EAE5DF;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+  }
+
+  .sku-table-container tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .sku-table-container td {
+    border-bottom: 1px solid #f1f5f9;
+    padding: 0;
+  }
+
+  .sku-table-container td:last-child {
+    border-bottom: none;
+    background-color: #f8fafc;
+  }
+
+  /* First TD (Image & Name) */
+  .sku-table-container td:nth-child(1) {
+    width: 100%;
+    background: #F5F3ED; /* Header background */
+    padding: 14px 16px;
+    border-bottom: 1px solid #EAE5DF;
+  }
+  
+  .sku-table-container td:nth-child(1) img {
+    border-radius: 50% !important; /* Circle avatar */
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid #EAE5DF;
+  }
+  
+  .sku-table-container td:nth-child(1) .product-de-title,
+  .sku-table-container td:nth-child(1) .product-zh-title {
+    color: #333;
+    font-size: 15px;
+  }
+
+  /* Data TDs - 3 in a row */
+  .sku-table-container td:nth-child(2),
+  .sku-table-container td:nth-child(3),
+  .sku-table-container td:nth-child(4) {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Center aligned content */
+    padding: 0 0 20px 0; /* Remove top/side padding to let label span full width */
+    border-right: 1px solid #EAE5DF;
+    text-align: center;
+    background: #FFFFFF;
+    font-size: 16px;
+    color: #111;
+  }
+  
+  .sku-table-container td:nth-child(4) {
+    border-right: none;
+  }
+
+  /* Summe TD */
+  .sku-table-container td:nth-child(5) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #F5F3ED; /* Footer background matches header */
+    border-top: 1px solid #EAE5DF;
+  }
+
+  /* Data labels */
+  .sku-table-container td:nth-child(2)::before,
+  .sku-table-container td:nth-child(3)::before,
+  .sku-table-container td:nth-child(4)::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 0;
+    font-weight: 700;
+    color: #111;
+    font-size: 13px;
+    border-bottom: 1px solid #EAE5DF;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  .client-mode-active .sku-table-container td:nth-child(2)::before { content: "Menge"; }
+  .client-mode-active .sku-table-container td:nth-child(3)::before { content: "Staffelpreis"; }
+  .client-mode-active .sku-table-container td:nth-child(4)::before { content: "Angebotspreis"; }
+  .client-mode-active .sku-table-container td:nth-child(5)::before { content: "Summe"; font-weight: 800; color: #111; font-size: 16px; }
+
+  body:not(.client-mode-active) .sku-table-container td:nth-child(2)::before { content: "数量"; }
+  body:not(.client-mode-active) .sku-table-container td:nth-child(3)::before { content: "阶梯单价"; }
+  body:not(.client-mode-active) .sku-table-container td:nth-child(4)::before { content: "优惠单价"; }
+  body:not(.client-mode-active) .sku-table-container td:nth-child(5)::before { content: "小计"; font-weight: 800; color: #111; font-size: 16px; }
+
+  /* Center align content blocks inside data TDs */
+  .sku-table-container td:nth-child(2) > div,
+  .sku-table-container td:nth-child(3) > div,
+  .sku-table-container td:nth-child(4) > div {
+    align-items: center !important;
+  }
+  
+  /* Tiered pricing block specific rules */
+  .sku-table-container td:nth-child(3) > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px !important;
+  }
+  .sku-table-container td:nth-child(3) > div > div {
+    flex-direction: column;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  .sku-table-container td:nth-child(3) > div > div > span:first-child {
+    width: auto !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-size: 12px !important;
+    margin-bottom: 2px;
+  }
+
+  /* Dual Currency Mobile Styles */
+  .dual-currency {
+    align-items: center !important;
+    gap: 2px !important;
+  }
+  .dual-currency .cny {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #111 !important;
+  }
+  .dual-currency .eur {
+    font-size: 12px !important;
+    color: #888 !important;
+    font-weight: 400 !important;
+  }
+  .dual-currency .eur::before { content: "("; }
+  .dual-currency .eur::after { content: ")"; }
+
+  /* Summe row special currency styles */
+  .sku-table-container td:nth-child(5) .dual-currency {
+    align-items: flex-end !important;
+  }
+  .sku-table-container td:nth-child(5) .cny {
+    color: #9B6A3B !important;
+    font-size: 16px !important;
+  }
+  .sku-table-container td:nth-child(5) .eur {
+    color: #111 !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+  }
+  .sku-table-container td:nth-child(5) .eur::before,
+  .sku-table-container td:nth-child(5) .eur::after {
+    content: "" !important;
   }
   
   .store-header {
     font-size: 14px;
-    padding: 14px 16px;
+    padding: 12px;
   }
   
   .product-group {
-    padding: 16px;
+    padding: 16px 12px;
   }
 }

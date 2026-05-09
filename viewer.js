@@ -58,7 +58,12 @@ function showError(msg) {
 
 function escapeHtml(unsafe) {
     if (!unsafe) return '';
-    return unsafe.replace(/[&<"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+    return String(unsafe)
+        .replace(/&(?!#?\w+;)/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 }
 
 function renderHierarchy() {
@@ -104,7 +109,7 @@ function renderHierarchy() {
             prodHeader.innerHTML = `
                 ${prod.imgUrl ? `<img src="${prod.imgUrl}" class="previewable-image" alt="Product">` : '<div style="width:80px;height:80px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#94a3b8;border:1px dashed #cbd5e1;">无图</div>'}
                 <div class="product-titles">
-                    <div class="product-de-title">${escapeHtml(prod.titleDe || prod.title)}</div>
+                    <div class="product-de-title">${escapeHtml(prod.titleDe || prod.title)} ${prod.link ? `<a href="${prod.link}" target="_blank" class="link-icon" style="font-size:12px; margin-left:8px; color:#2563eb; text-decoration:none;">🔗 Link</a>` : ''}</div>
                 </div>
             `;
             prodDiv.appendChild(prodHeader);
@@ -119,9 +124,9 @@ function renderHierarchy() {
                             <tr>
                                 <th width="35%">Artikel</th>
                                 <th width="8%" class="num-center">Menge</th>
-                                <th width="19%" class="num-center">Listenpreis (¥/€)</th>
-                                <th width="19%" class="num-center">Angebotspreis (¥/€)</th>
-                                <th width="19%" class="num-center" style="background-color: #f0f7ff;">Summe (¥/€)</th>
+                                <th width="19%" class="num-center">Listenpreis</th>
+                                <th width="19%" class="num-center">Angebotspreis</th>
+                                <th width="19%" class="num-center" style="background-color: #f0f7ff;">Summe</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -143,10 +148,31 @@ function renderHierarchy() {
                             </td>
                             <td class="num-center font-semibold" style="font-size: 14px;">${sku.quantity}</td>
                             <td class="num-center">
-                                <div class="dual-currency">
-                                    <span class="cny">¥${(sku.originalPrice || sku.price).toFixed(2)}</span>
-                                    <span class="eur">€${sku.originalPriceEur.toFixed(2)}</span>
-                                </div>
+                                ${sku.priceRanges && sku.priceRanges.length > 0 ? 
+                                    `<div style="display:flex; flex-direction:column; gap:4px; font-size:11px; align-items:center;">
+                                    ${sku.priceRanges.map(text => {
+                                        const match = text.match(/^(.*?)(?:：|:)\s*([\d.]+)$/);
+                                        if (match) {
+                                            const qtyStr = match[1].trim();
+                                            const cnyVal = parseFloat(match[2]);
+                                            const eurVal = (cnyVal / rate).toFixed(2);
+                                            return `<div style="display:flex; align-items:center; gap:8px;">
+                                                <span style="color:#64748b; width:55px; text-align:right;">${escapeHtml(qtyStr)}:</span>
+                                                <div class="dual-currency" style="align-items:center; gap:0; width:40px;">
+                                                <span class="cny" style="font-size:10px;">¥${cnyVal.toFixed(2)}</span>
+                                                <span class="eur" style="font-size:11px;">€${eurVal}</span>
+                                                </div>
+                                            </div>`;
+                                        }
+                                        return `<span style="color:#64748b;">${escapeHtml(text)}</span>`;
+                                    }).join('')}
+                                    </div>`
+                                :
+                                    `<div class="dual-currency">
+                                        <span class="cny">¥${(sku.originalPrice || sku.price).toFixed(2)}</span>
+                                        <span class="eur">€${sku.originalPriceEur.toFixed(2)}</span>
+                                    </div>`
+                                }
                             </td>
                             <td class="num-center">
                                 <div class="dual-currency">

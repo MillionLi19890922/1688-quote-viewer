@@ -138,10 +138,7 @@ h1 {
   font-weight: 700;
 }
 
-/* 隐藏管理模式下的敏感链接 */
-.client-mode-active .link-icon {
-  display: none;
-}
+
 .alert.hidden { display: none; }
 .alert-error { background: #fef2f2; color: #ef4444; border: 1px solid #fecaca; }
 .alert-success { background: #f0fdf4; color: #10b981; border: 1px solid #bbf7d0; }

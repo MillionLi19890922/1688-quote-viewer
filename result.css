@@ -1,10 +1,11 @@
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -35,8 +36,10 @@ header {
 h1 {
   margin: 0;
   font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  color: #1e293b;
+  color: #1d1d1f;
+  letter-spacing: -0.015em;
 }
 
 .btn {
@@ -261,26 +264,26 @@ h1 {
 
 .store-group {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: none;
   overflow: hidden;
 }
 
 .store-header {
-  background: #f8fafc;
+  background: white;
   padding: 16px 20px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #1e293b;
-  border-bottom: 1px solid #e2e8f0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1d1d1f;
+  border-bottom: 1px solid #e5e5ea;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .product-group {
-  border-bottom: 1px dashed #e2e8f0;
+  border-bottom: 1px solid #e5e5ea;
   padding: 20px;
 }
 .product-group:last-child {
@@ -289,16 +292,16 @@ h1 {
 
 .product-header {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
 .product-header img {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  border: 1px solid #e5e5ea;
 }
 
 .product-titles {
@@ -309,27 +312,29 @@ h1 {
 }
 
 .product-zh-title {
-  font-size: 14px;
-  color: #64748b;
-  margin-bottom: 6px;
+  font-size: 13px;
+  color: #86868b;
+  margin-bottom: 4px;
+  line-height: 1.4;
 }
 
 .product-de-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #0f172a;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1d1d1f;
+  line-height: 1.4;
 }
 .product-de-title.untranslated {
-  color: #94a3b8;
+  color: #86868b;
   font-style: italic;
   font-weight: 400;
 }
 
 .sku-table-container {
-  margin-left: 100px; /* Aligned with titles */
-  background: #f8fafc;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  margin-left: 88px; /* Aligned with titles */
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e5ea;
   overflow: hidden;
 }
 
@@ -340,19 +345,21 @@ h1 {
 
 .sku-table-container th {
   padding: 10px 16px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: #64748b;
-  background: #f1f5f9;
-  border-bottom: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #86868b;
+  background: #f5f5f7;
+  border-bottom: 1px solid #e5e5ea;
   text-align: left;
 }
 
 .sku-table-container td {
   padding: 12px 16px;
   font-size: 13px;
-  color: #334155;
-  border-bottom: 1px solid #e2e8f0;
+  color: #1d1d1f;
+  border-bottom: 1px solid #e5e5ea;
 }
 
 .sku-table-container tr:last-child td {
@@ -365,24 +372,27 @@ h1 {
 
 .sku-zh {
   font-size: 11px;
-  color: #94a3b8;
+  color: #86868b;
   margin-bottom: 4px;
 }
 .sku-de {
   font-weight: 500;
 }
 .sku-de.untranslated {
-  color: #cbd5e1;
+  color: #c7c7cc;
   font-weight: 400;
 }
 
 a.link-icon {
-  color: #3b82f6;
+  color: #0066cc;
   text-decoration: none;
-  font-size: 14px;
-  margin-left: 10px;
+  font-size: 13px;
+  margin-left: 8px;
+  font-weight: 400;
+  opacity: 0.8;
+  transition: opacity 0.2s;
 }
-a.link-icon:hover { text-decoration: underline; }
+a.link-icon:hover { opacity: 1; text-decoration: none; }
 
 /* Image Preview */
 .image-preview {
@@ -413,25 +423,26 @@ a.link-icon:hover { text-decoration: underline; }
 
 /* Quote Header & Footer (Client Mode) */
 .quote-header {
-  margin-bottom: 40px;
-  border-bottom: 2px solid #3b82f6;
-  padding-bottom: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .quote-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #1e293b;
-  letter-spacing: 1px;
+  font-size: 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
 }
 
 .quote-company-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: #3b82f6;
+  font-size: 16px;
+  font-weight: 500;
+  color: #86868b;
+  margin-top: 4px;
 }
 
 .quote-date {
@@ -591,6 +602,7 @@ a.link-icon:hover { text-decoration: underline; }
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     width: 100%;
+    border-radius: 8px;
   }
   
   .sku-table-container table {
@@ -599,10 +611,10 @@ a.link-icon:hover { text-decoration: underline; }
   
   .store-header {
     font-size: 14px;
-    padding: 12px;
+    padding: 14px 16px;
   }
   
   .product-group {
-    padding: 16px 12px;
+    padding: 16px;
   }
 }

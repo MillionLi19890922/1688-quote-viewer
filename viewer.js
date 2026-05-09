@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Populate header & footer
         document.getElementById('displayCompanyName').textContent = quoteMetadata.companyName || '';
+        document.getElementById('displayContactInfo').textContent = quoteMetadata.contactInfo || '';
         document.getElementById('displayPaymentInfo').textContent = quoteMetadata.paymentInfo || '';
-        document.getElementById('displayTerms').textContent = quoteMetadata.terms || '';
+        document.getElementById('displayTerms').innerHTML = quoteMetadata.terms || '';
         document.getElementById('displayQuoteDate').textContent = `Datum: ${quoteMetadata.date || new Date().toLocaleDateString('de-DE')}`;
 
         renderHierarchy();

@@ -60,11 +60,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('displayTerms').innerHTML = quoteMetadata.terms || '';
         document.getElementById('displayQuoteDate').textContent = quoteMetadata.date || new Date().toLocaleDateString('de-DE');
 
-        // 更新透明化提示 (汇率与佣金)
+        // 核心财务逻辑同步
+        const rate = quoteMetadata.rate || 7.5;
+        const markup = quoteMetadata.markup || 0;
+
+        // 更新透明化提示 (汇率与佣金) - 方案 A 增强版
         const noticeEl = document.getElementById('validityNotice');
         if (noticeEl) {
-            const rate = quoteMetadata.rate || 7.8;
-            const markup = quoteMetadata.markup || 0;
             noticeEl.innerHTML = `
                 <div style="margin-bottom: 4px;">1. Der Wechselkurs basiert auf 1 € = ${rate} ¥.</div>
                 <div>2. Die Service-Provision wird mit ${markup}% berechnet.</div>
@@ -72,10 +74,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             noticeEl.style.color = '#10b981';
             noticeEl.style.fontWeight = '700';
             noticeEl.style.textAlign = 'right';
-            noticeEl.style.fontSize = '13px';
+            noticeEl.style.fontSize = '14px';
             noticeEl.style.marginTop = '15px';
             noticeEl.style.borderTop = '1px solid #f1f5f9';
             noticeEl.style.paddingTop = '12px';
+            noticeEl.style.fontStyle = 'normal';
         }
 
         renderHierarchy();
@@ -114,12 +117,8 @@ function renderHierarchy() {
     // 从 metadata 获取财务汇总信息
     const totalProductCny = quoteMetadata.totalProductCny || 0;
     const domesticShippingCny = quoteMetadata.domesticShippingCny || 0;
-    const rate = quoteMetadata.rate || 7;
+    const rate = quoteMetadata.rate || 7.5;
     const markup = quoteMetadata.markup || 0;
-
-    // 告知文字
-    document.getElementById('validityNotice').textContent =
-      `Angebot erstellt am ${quoteMetadata.date || new Date().toLocaleDateString('de-DE')}. Da sich die Einkaufspreise ändern können, ist dieses Angebot 7 Tage lang gültig. Nach Ablauf verliert das Angebot seine Gültigkeit.`;
 
     globalData.forEach((store, index) => {
         const storeDiv = document.createElement('div');

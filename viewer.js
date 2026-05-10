@@ -35,11 +35,48 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('quoteFooter').classList.remove('hidden');
 
         // Populate header & footer
+        const logoImg = document.getElementById('displayLogo');
+        const footerLogoImg = document.getElementById('footerDisplayLogo');
+        if (quoteMetadata.companyLogo) {
+            logoImg.src = quoteMetadata.companyLogo;
+            logoImg.style.display = 'block';
+            if (footerLogoImg) {
+                footerLogoImg.src = quoteMetadata.companyLogo;
+                footerLogoImg.style.display = 'block';
+            }
+        } else {
+            logoImg.style.display = 'none';
+            if (footerLogoImg) footerLogoImg.style.display = 'none';
+        }
+
         document.getElementById('displayCompanyName').textContent = quoteMetadata.companyName || '';
+        document.getElementById('displayAgentVat').textContent = quoteMetadata.agentVat || '';
+        document.getElementById('displayQuoteNo').textContent = quoteMetadata.quoteNo || '---';
+        document.getElementById('displayValidUntil').textContent = quoteMetadata.validUntil || '---';
+        document.getElementById('displayBuyerInfo').textContent = quoteMetadata.buyerInfo || '';
+        
         document.getElementById('displayContactInfo').textContent = quoteMetadata.contactInfo || '';
         document.getElementById('displayPaymentInfo').textContent = quoteMetadata.paymentInfo || '';
         document.getElementById('displayTerms').innerHTML = quoteMetadata.terms || '';
-        document.getElementById('displayQuoteDate').textContent = `Datum: ${quoteMetadata.date || new Date().toLocaleDateString('de-DE')}`;
+        document.getElementById('displayQuoteDate').textContent = quoteMetadata.date || new Date().toLocaleDateString('de-DE');
+
+        // 更新透明化提示 (汇率与佣金)
+        const noticeEl = document.getElementById('validityNotice');
+        if (noticeEl) {
+            const rate = quoteMetadata.rate || 7.8;
+            const markup = quoteMetadata.markup || 0;
+            noticeEl.innerHTML = `
+                <div style="margin-bottom: 4px;">1. Der Wechselkurs basiert auf 1 € = ${rate} ¥.</div>
+                <div>2. Die Service-Provision wird mit ${markup}% berechnet.</div>
+            `;
+            noticeEl.style.color = '#10b981';
+            noticeEl.style.fontWeight = '700';
+            noticeEl.style.textAlign = 'right';
+            noticeEl.style.fontSize = '13px';
+            noticeEl.style.marginTop = '15px';
+            noticeEl.style.borderTop = '1px solid #f1f5f9';
+            noticeEl.style.paddingTop = '12px';
+        }
 
         renderHierarchy();
         setupImagePreview();

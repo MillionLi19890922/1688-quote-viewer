@@ -19,9 +19,40 @@
 
     <!-- 报价单顶部信息 -->
     <div id="quoteHeader" class="quote-header hidden">
-        <div class="quote-title">OFFIZIELLES ANGEBOT</div>
-        <div class="quote-company-name" id="displayCompanyName"></div>
-        <div class="quote-date" id="displayQuoteDate"></div>
+        <div class="header-top-row">
+            <div class="agent-info">
+                <img id="displayLogo" class="quote-logo" src="" style="display: none;" alt="Logo">
+                <div class="agent-details">
+                    <div class="agent-label">IHR BESCHAFFUNGSPARTNER</div>
+                    <div class="agent-name" id="displayCompanyName"></div>
+                    <div class="agent-vat" id="displayAgentVat"></div>
+                </div>
+            </div>
+            <div class="project-title-area">
+                <div class="project-main-title">BESCHAFFUNGS-SERVICE ANGEBOT</div>
+                <div class="project-meta-grid">
+                    <div class="meta-item">
+                        <span class="meta-label">Projekt-Nr.:</span>
+                        <span class="meta-value" id="displayQuoteNo"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Datum:</span>
+                        <span class="meta-value" id="displayQuoteDate"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Gültig bis:</span>
+                        <span class="meta-value" id="displayValidUntil"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-client-row">
+            <div class="client-box">
+                <div class="client-label">ERSTELLT FÜR:</div>
+                <div class="client-details" id="displayBuyerInfo"></div>
+            </div>
+        </div>
     </div>
 
     <!-- 层级数据展示区 -->
@@ -109,6 +140,7 @@
     <!-- 报价单底部条款 -->
     <div id="quoteFooter" class="quote-footer hidden">
         <div class="footer-section">
+            <img id="footerDisplayLogo" class="footer-logo" src="" style="display: none;" alt="Logo">
             <strong>Kontaktinformationen:</strong>
             <div id="displayContactInfo"></div>
         </div>
@@ -116,9 +148,9 @@
             <strong>Zahlungsinformationen:</strong>
             <div id="displayPaymentInfo"></div>
         </div>
-        <div class="footer-section">
+        <div class="footer-section full-width">
             <strong>Konditionen:</strong>
-            <div id="displayTerms"></div>
+            <div id="displayTerms" class="rich-text-content"></div>
         </div>
     </div>
 

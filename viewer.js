@@ -60,13 +60,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('displayTerms').innerHTML = quoteMetadata.terms || '';
         document.getElementById('displayQuoteDate').textContent = quoteMetadata.date || new Date().toLocaleDateString('de-DE');
 
-        // 核心财务逻辑同步
-        const rate = quoteMetadata.rate || 7.5;
-        const markup = quoteMetadata.markup || 0;
-
-        // 更新透明化提示 (汇率与佣金) - 方案 A 增强版
+        // 更新透明化提示 (汇率与佣金)
         const noticeEl = document.getElementById('validityNotice');
         if (noticeEl) {
+            const rate = quoteMetadata.rate || 7.8;
+            const markup = quoteMetadata.markup || 0;
             noticeEl.innerHTML = `
                 <div style="margin-bottom: 4px;">1. Der Wechselkurs basiert auf 1 € = ${rate} ¥.</div>
                 <div>2. Die Service-Provision wird mit ${markup}% berechnet.</div>
@@ -74,11 +72,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             noticeEl.style.color = '#10b981';
             noticeEl.style.fontWeight = '700';
             noticeEl.style.textAlign = 'right';
-            noticeEl.style.fontSize = '14px';
+            noticeEl.style.fontSize = '13px';
             noticeEl.style.marginTop = '15px';
             noticeEl.style.borderTop = '1px solid #f1f5f9';
             noticeEl.style.paddingTop = '12px';
-            noticeEl.style.fontStyle = 'normal';
         }
 
         renderHierarchy();
@@ -117,8 +114,10 @@ function renderHierarchy() {
     // 从 metadata 获取财务汇总信息
     const totalProductCny = quoteMetadata.totalProductCny || 0;
     const domesticShippingCny = quoteMetadata.domesticShippingCny || 0;
-    const rate = quoteMetadata.rate || 7.5;
+    const rate = quoteMetadata.rate || 7;
     const markup = quoteMetadata.markup || 0;
+
+    // 告知文字逻辑已移至页面初始化阶段 (DOMContentLoaded)，此处不再重复渲染以防覆盖
 
     globalData.forEach((store, index) => {
         const storeDiv = document.createElement('div');
